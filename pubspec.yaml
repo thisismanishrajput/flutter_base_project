@@ -1,0 +1,78 @@
+name: flutter_base_project
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  flutter_bloc: ^8.1.6
+  pinput: ^5.0.0
+  go_router: ^14.6.2
+  lifecycle: ^0.9.0
+  flutter_dotenv: ^5.2.1
+  get_it: ^8.0.3
+  dio: ^5.7.0
+  fpdart: ^1.1.1
+  shared_preferences: ^2.3.3
+  animate_do: ^3.3.4
+  persistent_bottom_nav_bar: ^6.2.1
+  flutter_svg: ^2.0.16
+  firebase_core: ^3.8.1
+  firebase_auth: ^5.3.4
+  google_maps_flutter: ^2.10.0
+  fluttertoast: ^8.2.10
+  firebase_analytics: ^11.3.6
+  intl: ^0.19.0
+  jiffy: ^6.3.1
+  url_launcher: ^6.3.1
+  geolocator: ^13.0.2
+  location: ^7.0.1
+  geocoding: ^3.0.0
+  equatable: ^2.0.7
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+     - assets/images/
+     - assets/nav_icons/
+     - env.dev
+     - env.prod
+
+  fonts:
+    - family: Spartan
+      fonts:
+        - asset: assets/font/spartan_black.ttf
+        - asset: assets/font/spartan_bold.ttf
+        - asset: assets/font/spartan_extra_bold.ttf
+        - asset: assets/font/spartan_extra_light.ttf
+        - asset: assets/font/spartan_light.ttf
+        - asset: assets/font/spartan_medium.ttf
+        - asset: assets/font/spartan_regular.ttf
+        - asset: assets/font/spartan_semi_bold.ttf
+        - asset: assets/font/spartan_thin.ttf
