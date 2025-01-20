@@ -1,0 +1,241 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:4953115866796825366",
+      "lastPropertyId": "11:2143793658382009127",
+      "name": "ChargingStation",
+      "properties": [
+        {
+          "id": "1:5079297993731988999",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3849559250715562412",
+          "name": "deviceId",
+          "type": 9
+        },
+        {
+          "id": "3:6574043979899747520",
+          "name": "locationId",
+          "type": 9
+        },
+        {
+          "id": "4:709066809242827216",
+          "name": "evseUid",
+          "type": 9
+        },
+        {
+          "id": "5:6699966564797558332",
+          "name": "connectorId",
+          "type": 9
+        },
+        {
+          "id": "6:2052437331273768545",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "7:6437176158522176139",
+          "name": "mobileNo",
+          "type": 9
+        },
+        {
+          "id": "8:2100463611616267712",
+          "name": "address",
+          "type": 9
+        },
+        {
+          "id": "9:5345672831067343579",
+          "name": "latitude",
+          "type": 9
+        },
+        {
+          "id": "10:4112415262767273607",
+          "name": "longitude",
+          "type": 9
+        },
+        {
+          "id": "11:2143793658382009127",
+          "name": "description",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:3976517720002197394",
+      "lastPropertyId": "16:8254004166730370439",
+      "name": "MyOrder",
+      "properties": [
+        {
+          "id": "1:5652306841387449545",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3906140019991504815",
+          "name": "chargingStatusesId",
+          "type": 6
+        },
+        {
+          "id": "3:1970298710613495101",
+          "name": "appusersId",
+          "type": 6
+        },
+        {
+          "id": "4:1882618726441070104",
+          "name": "sessionId",
+          "type": 9
+        },
+        {
+          "id": "5:4638767292065625475",
+          "name": "startTime",
+          "type": 9
+        },
+        {
+          "id": "6:8303819917095229687",
+          "name": "endTime",
+          "type": 9
+        },
+        {
+          "id": "7:6193245401316506664",
+          "name": "status",
+          "type": 9
+        },
+        {
+          "id": "8:1916643526565222925",
+          "name": "endTimeExtend",
+          "type": 9
+        },
+        {
+          "id": "9:3650369348277865515",
+          "name": "amount",
+          "type": 6
+        },
+        {
+          "id": "10:1742282570210527505",
+          "name": "createdAt",
+          "type": 10
+        },
+        {
+          "id": "11:7107619558445654641",
+          "name": "updatedAt",
+          "type": 10
+        },
+        {
+          "id": "12:5581277188632054021",
+          "name": "actualStartTime",
+          "type": 9
+        },
+        {
+          "id": "13:5771925501917009863",
+          "name": "actualEndTime",
+          "type": 9
+        },
+        {
+          "id": "14:7750680127354398996",
+          "name": "kwh",
+          "type": 9
+        },
+        {
+          "id": "15:4361219782855579913",
+          "name": "chargingStationId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:1646987747817088041",
+          "relationTarget": "ChargingStation"
+        },
+        {
+          "id": "16:8254004166730370439",
+          "name": "walletId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "2:4022947816293389846",
+          "relationTarget": "Wallet"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:323506799793622405",
+      "lastPropertyId": "3:5403479751363170689",
+      "name": "OrderModel",
+      "properties": [
+        {
+          "id": "1:6647668264327295294",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7695828148896051344",
+          "name": "status",
+          "type": 1
+        },
+        {
+          "id": "3:5403479751363170689",
+          "name": "message",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:5401849621531167813",
+          "name": "data",
+          "targetId": "2:3976517720002197394"
+        }
+      ]
+    },
+    {
+      "id": "4:6612045445230070358",
+      "lastPropertyId": "5:2350972604102801208",
+      "name": "Wallet",
+      "properties": [
+        {
+          "id": "1:6607570824923142157",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1241941121106893911",
+          "name": "appusersId",
+          "type": 6
+        },
+        {
+          "id": "3:5749612974745007393",
+          "name": "bookingsId",
+          "type": 6
+        },
+        {
+          "id": "4:7137360088300629055",
+          "name": "amount",
+          "type": 9
+        },
+        {
+          "id": "5:2350972604102801208",
+          "name": "walletType",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "4:6612045445230070358",
+  "lastIndexId": "2:4022947816293389846",
+  "lastRelationId": "1:5401849621531167813",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

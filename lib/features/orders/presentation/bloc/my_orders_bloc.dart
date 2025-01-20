@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter_base_project/features/orders/domain/local/app_local_db.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_base_project/features/orders/data/model/order_model.dart';
 import 'package:flutter_base_project/features/orders/domain/repo/orders_repo.dart';
@@ -8,23 +9,26 @@ import 'package:flutter_base_project/services/service_locator.dart';
 import 'package:flutter_base_project/utility/utility_function.dart';
 
 class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
+  final OrderDB orderLocalDb = serviceLocator<OrderDB>();
   MyOrdersBloc() : super(const MyOrdersState()) {
     on<GetMyUpcomingOrdersEvent>(_getUpcomingOrders);
     on<GetMyStartOrdersEvent>(_getStartOrders);
     on<GetMyPendingOrders>(_getPendingOrders);
     on<GetMyCancelOrders>(_getCancelOrders);
+    on<GetLocalOrders>(_getLocalOrders);
   }
 
   final OrdersRepo _ordersRepo = serviceLocator<OrdersRepo>();
 
   FutureOr<void> _getUpcomingOrders(GetMyUpcomingOrdersEvent event, Emitter<MyOrdersState> emit) async {
     emit(state.copyWith(upcomingMyOrdersStatus: StateUpdateStatus.updating));
+
     final res = await _ordersRepo.fetchOrders();
+
     res.fold((left) {
       UtilityFunction.instance.showToast(left, level: ToastLevel.error);
       emit(state.copyWith(upcomingMyOrdersStatus: StateUpdateStatus.failed));
     }, (orders) {
-      // Store all fetched orders in the state
       emit(state.copyWith(
         upcomingMyOrdersStatus: StateUpdateStatus.success,
         upcomingOrders: orders?.where((order) => order.status == "0").toList(),
@@ -32,6 +36,21 @@ class MyOrdersBloc extends Bloc<MyOrdersEvent, MyOrdersState> {
       ));
     });
   }
+
+  FutureOr<void> _getLocalOrders(GetLocalOrders event, Emitter<MyOrdersState> emit) async {
+    final res = await _ordersRepo.getLocalOrders();
+
+    res.fold((left) {
+      UtilityFunction.instance.showToast(left, level: ToastLevel.error);
+      emit(state.copyWith(upcomingMyOrdersStatus: StateUpdateStatus.failed));
+    }, (localOrders) {
+      emit(state.copyWith(
+        allOrders: localOrders,
+        upcomingMyOrdersStatus: StateUpdateStatus.success,
+      ));
+    });
+  }
+
 
   void _filterOrdersByStatus(
       Emitter<MyOrdersState> emit,

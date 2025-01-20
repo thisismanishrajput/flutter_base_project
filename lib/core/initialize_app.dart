@@ -11,6 +11,7 @@ Future<void> initializeApp() async {
   final flavor = await getFlavor();
   await dotenv.load(fileName: 'env.$flavor');
   await service_locator.init();
+  await service_locator.initDB();
   runApp(const MyApp());
   logEnvironment(flavor);
 }
