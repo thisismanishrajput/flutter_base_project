@@ -20,9 +20,9 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     navigatorKey: rootNavigatorKey,
     initialLocation: AppRoutePaths.products,
+    refreshListenable: sl<AuthSessionManager>(),
     redirect: (BuildContext context, GoRouterState state) {
-      final token = sl<AuthSessionManager>().getAccessToken();
-      final isLoggedIn = token != null && token.isNotEmpty;
+      final isLoggedIn = sl<AuthSessionManager>().isLoggedIn;
       final isLoginRoute = state.uri.path == AppRoutePaths.login;
 
       if (!isLoggedIn && !isLoginRoute) {

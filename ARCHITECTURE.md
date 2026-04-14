@@ -13,7 +13,7 @@ The app follows **Clean Architecture** with clear layer boundaries:
 
 ### Visual overview (system-design style)
 
-![Clean Architecture - High Level Design](/Users/manish.singh/.cursor/projects/Users-manish-singh-Works-agent-app/assets/architecture_overview.png)
+![Clean Architecture - High Level Design](Generated_image.png)
 
 If your markdown viewer cannot render local image paths, use the Mermaid diagrams in this document (they represent the same architecture).
 
@@ -86,7 +86,7 @@ sequenceDiagram
 
 This is the standard flow every feature should follow.
 
-![Runtime Request Flow - Products Feature](/Users/manish.singh/.cursor/projects/Users-manish-singh-Works-agent-app/assets/request_runtime_flow.png)
+![Runtime Request Flow - Products Feature](runtime_flow.png)
 
 ```mermaid
 sequenceDiagram

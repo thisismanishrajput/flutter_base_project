@@ -29,6 +29,8 @@ class AuthRepositoryImpl implements AuthRepository {
       );
       await _authSessionManager.setAccessToken(token);
       return const Success<void>(null);
+    } on NoInternetException catch (error) {
+      return FailureResult<void>(NoInternetFailure(error.message));
     } on ServerException catch (error) {
       return FailureResult<void>(ServerFailure(error.message));
     } on AppException catch (error) {

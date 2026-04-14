@@ -27,7 +27,9 @@ class ProductRepositoryImpl implements ProductRepository {
 
     try {
       final products = await _remoteDataSource.getProducts();
-      return Success<List<Product>>(products);
+      return Success<List<Product>>(
+        products.map((product) => product.toEntity()).toList(),
+      );
       // Map low-level exceptions to domain failures.
     } on NoInternetException catch (error) {
       return FailureResult<List<Product>>(NoInternetFailure(error.message));

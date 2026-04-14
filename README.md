@@ -212,6 +212,12 @@ All wiring is centralized in `lib/src/core/di/injection_container.dart`:
 - Core: `NetworkInfo`
 - Feature: datasource -> repository -> use case -> bloc
 
+## Quality Baseline
+
+- Reactive auth-aware routing via `AuthSessionManager` + `GoRouter.refreshListenable`
+- Typed error mapping for offline/server/unknown failures
+- Baseline tests for error handling, auth session persistence, and product model parsing
+
 ## Token Storage and Auth Header
 
 Shared preference wrapper:
